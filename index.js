@@ -6,4 +6,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 5001;
 
-app.listen(PORT, () => console.log('Connection established!'));
+app.listen(PORT, () => console.log(`Connection established on ${PORT}`));
