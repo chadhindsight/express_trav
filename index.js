@@ -9,7 +9,7 @@ const logger = (req, res, next) => {
     next();
 };
 
-// Init logger middleware
+// Init logger middleware fada
 app.use(logger);
 
 // Sets static folder
