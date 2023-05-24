@@ -9,7 +9,7 @@ const logger = (req, res, next) => {
     next();
 };
 
-// Init logger middleware 
+// Init the logger middleware 
 app.use(logger);
 
 // Sets static folder
