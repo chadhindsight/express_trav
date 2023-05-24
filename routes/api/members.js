@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const members = require('../../Members')
+
 // Get all members
-router.get('/api/members', (req, res) => {
+router.get('/', (req, res) => {
     res.json(members)
 })
 
 // Get specific member
-router.get('/api/members/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const userID = req.params.id
 
     const found = members.some(member => member.id === Number(userID))
@@ -18,3 +19,5 @@ router.get('/api/members/:id', (req, res) => {
         res.status(400).json({ msg: `Member with id of ${userID} cannot be found` });
     }
 })
+
+module.exports = router;
