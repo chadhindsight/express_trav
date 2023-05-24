@@ -6,7 +6,7 @@ const { logger } = require('./middleware/logger');
 const app = express();
 
 // Init the logger middleware 
-app.use(logger);
+// app.use(logger);
 
 // Sets static folder
 app.use(express.static(path.join(__dirname, 'public')));
