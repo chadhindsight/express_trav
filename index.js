@@ -10,6 +10,7 @@ const app = express();
 // This set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/members', require('./routes/api/member'));
 
 
 const PORT = process.env.PORT || 5001;
