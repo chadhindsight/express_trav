@@ -29,6 +29,7 @@ router.post('/', (req, res) => {
         status: 'active'
     };
     if (!newMember.name || !newMember.email) {
+        console.log(req.body)
         return res.status(400).json({ msg: 'Please include a name and email' });
     }
 
