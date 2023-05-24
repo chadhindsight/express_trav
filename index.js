@@ -1,24 +1,22 @@
 const express = require('express');
 const path = require('path');
-const members = require('./Members');
 const { logger } = require('./middleware/logger');
 
 const app = express();
 
 // Init the logger middleware 
-// app.use(logger);
+// app.use(logger)
 
-// Sets static folder
+// Body Parser that allows you to get stuff from req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// This set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Get all members
-app.get('/api/members', (req, res) => {
-    res.json(members)
-})
+// API routes for members
+app.use('/api/members', require('./routes/api/members'));
 
-app.get('/api/members/:id', (req, res) => {
-    res.json(members.filter(member => member.id === Number(req.params.id)))
-})
 
 const PORT = process.env.PORT || 5001;
 
