@@ -11,8 +11,13 @@ const app = express();
 // Sets static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Get all members
 app.get('/api/members', (req, res) => {
     res.json(members)
+})
+
+app.get('/api/members/:id', (req, res) => {
+    res.json(members.filter(member => member.id === Number(req.params.id)))
 })
 
 const PORT = process.env.PORT || 5001;
