@@ -7,7 +7,7 @@ const app = express();
 // Init the logger middleware 
 // app.use(logger)
 
-// Body Parser stuff
+// Body Parser that allows you to get stuff from req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
