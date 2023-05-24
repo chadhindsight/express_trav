@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
     }
 })
 
-// Create Member
+// Create new Member
 router.post('/', (req, res) => {
     const newMember = {
         ...req.body,
@@ -35,6 +35,11 @@ router.post('/', (req, res) => {
 
     members.push(newMember);
     res.json(members);
+})
+
+// Update Member
+router.put('/', (req, res) => {
+
 })
 
 module.exports = router;
