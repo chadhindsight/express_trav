@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', (req, res) =>
     // Instead of this, you would do something like res.redirect in the real world
     res.render('index', {
-        title: 'Member App',
+        title: 'Member App by Chad',
         members
     })
 );
