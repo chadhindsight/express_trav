@@ -47,9 +47,9 @@ router.put('/:id', (req, res) => {
         let updateMember = req.body;
 
         members.forEach(member => {
-            let { name, email } = member
+            let { name, email, id } = member
 
-            if (member.id === Number(req.params.id)) {
+            if (id === Number(req.params.id)) {
                 member.name = updateMember.name ? updateMember.name : name;
                 member.email = updateMember.email ? updateMember.email : email;
 
