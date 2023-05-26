@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const { logger } = require('./middleware/logger');
+const members = require('./Members');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Homepage Route
 app.get('/', (req, res) =>
+    // Instead of this, you would do something like res.redirect in the real world
     res.render('index', {
         title: 'Member App',
         members
