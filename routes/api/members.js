@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
     }
 })
 
-// Create Member
+// Create new Member
 router.post('/', (req, res) => {
     const newMember = {
         ...req.body,
@@ -35,6 +35,30 @@ router.post('/', (req, res) => {
 
     members.push(newMember);
     res.json(members);
+})
+
+// Update Member
+router.put('/:id', (req, res) => {
+    const userID = req.params.id;
+
+    const found = members.some(member => member.id === Number(userID))
+
+    if (found) {
+        let updateMember = req.body;
+
+        members.forEach(member => {
+            let { name, email } = member
+
+            if (member.id === Number(req.params.id)) {
+                name = updateMember.name ? updateMember.name : name;
+                email = updateMember.email ? updateMember.email : email;
+
+                res.json({ msg: `Member ${name} has been updated`, member })
+            }
+        })
+    } else {
+        res.status(400).json({ msg: `Member with id of ${userID} cannot be found` });
+    }
 })
 
 module.exports = router;
