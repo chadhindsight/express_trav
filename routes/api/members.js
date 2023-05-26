@@ -50,10 +50,10 @@ router.put('/:id', (req, res) => {
             let { name, email } = member
 
             if (member.id === Number(req.params.id)) {
-                name = updateMember.name ? updateMember.name : name;
-                email = updateMember.email ? updateMember.email : email;
+                member.name = updateMember.name ? updateMember.name : name;
+                member.email = updateMember.email ? updateMember.email : email;
 
-                res.json({ msg: `Member ${name} has been updated`, member })
+                res.json({ msg: "Member has been updated", member })
             }
         })
     } else {
