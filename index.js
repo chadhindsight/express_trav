@@ -26,7 +26,7 @@ app.get('/', (req, res) =>
     })
 );
 
-// This sets static folder
+// This sets static folder. Drift
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API routes for members
